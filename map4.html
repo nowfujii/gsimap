@@ -83,7 +83,7 @@ const gsimap_init = function(map, layer) {
 			xsd:float(?lat) < 34.6 && xsd:float(?lng) > 135.50 &&
 			xsd:float(?lat) > 34.4 && xsd:float(?lng) < 135.6
 		)
-        } limit 100
+        } limit 1000
     `
 
 	querySPARQL(query, function(data) {
