@@ -78,7 +78,10 @@ const gsimap_init = function(map, layer) {
         	select ?uri ?name ?lat ?lng {
         		?uri ic:名称 [ ic:表記 ?name ].
         		?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
-			filter(contains(str(?name),'駐車場'))
+        		filter(
+        			xsd:float(?lat) < 34.6 && xsd:float(?lng) > 135.5 &&
+        			xsd:float(?lat) > 34.5 && xsd:float(?lng) < 135.6
+        		)
 	        } limit 300
     	`
 
