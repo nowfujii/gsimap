@@ -78,11 +78,11 @@ const gsimap_init = function(map, layer) {
 		select ?uri ?name ?lat ?lng {
 			?uri ic:名称 [ ic:表記 ?name ].
 			?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
-			filter(contains(str(?name),'郵便局'))
-//		filter(
-//			xsd:float(?lat) < 34.69 && xsd:float(?lng) > 135.50 &&
-//			xsd:float(?lat) > 34.68 && xsd:float(?lng) < 135.51
-//		)
+			filter(contains(str(?name),'郵便'))
+		filter(
+			xsd:float(?lat) < 34.6 && xsd:float(?lng) > 135.50 &&
+			xsd:float(?lat) > 34.4 && xsd:float(?lng) < 135.6
+		)
         } limit 100
     `
 
@@ -97,7 +97,7 @@ const gsimap_init = function(map, layer) {
             
             layer.addIcon(lat, lng, name, "icon/icon-green.png", 32, function(name) {
                 if (name.indexOf("大阪淡路町") >= 0) {
-                    alert("北浜あたり！")
+                    alert("大阪淡路町郵便局　あたり！")
                 }
             })
 		}
