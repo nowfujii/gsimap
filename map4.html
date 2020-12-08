@@ -79,10 +79,10 @@ const gsimap_init = function(map, layer) {
         		?uri ic:名称 [ ic:表記 ?name ].
         		?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
         		filter(
-        			xsd:float(?lat) < 34.6 && xsd:float(?lng) > 135.5 &&
-        			xsd:float(?lat) > 34.5 && xsd:float(?lng) < 135.6
+        			xsd:float(?lat) < 34.692130 && xsd:float(?lng) > 135.501219 &&
+        			xsd:float(?lat) > 34.682073 && xsd:float(?lng) < 135.509223
         		)
-	        } limit 300
+	        } limit 100
     	`
 
 	querySPARQL(query, function(data) {
