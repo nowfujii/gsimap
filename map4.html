@@ -79,10 +79,10 @@ const gsimap_init = function(map, layer) {
 			?uri ic:名称 [ ic:表記 ?name ].
 			?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
 			filter(contains(str(?name),'郵便局'))
-		filter(
-			xsd:float(?lat) < 34.69 && xsd:float(?lng) > 135.50 &&
-			xsd:float(?lat) > 34.68 && xsd:float(?lng) < 135.51
-		)
+//		filter(
+//			xsd:float(?lat) < 34.69 && xsd:float(?lng) > 135.50 &&
+//			xsd:float(?lat) > 34.68 && xsd:float(?lng) < 135.51
+//		)
         } limit 100
     `
 
