@@ -78,7 +78,7 @@ const gsimap_init = function(map, layer) {
 		select * { 
 			?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/jrrk#EmergencyFacility>. 
 		} limit 10
-        	select ?uri ?name ?lat ?lng {
+/*        	select ?uri ?name ?lat ?lng {
         		?uri ic:名称 [ ic:表記 ?name ].
         		?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
         		filter(
@@ -86,6 +86,7 @@ const gsimap_init = function(map, layer) {
         			xsd:float(?lat) > 34.682073 && xsd:float(?lng) < 135.509223
         		)
 	        } limit 10
+*/
     	`
 
 	querySPARQL(query, function(data) {
