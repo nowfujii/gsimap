@@ -81,7 +81,7 @@ const gsimap_init = function(map, layer) {
 			filter(contains(str(?name),'郵便局'))
 		filter(
 			xsd:float(?lat) < 34.6 && xsd:float(?lng) > 135.6 &&
-			xsd:float(?lat) > 35.6 && xsd:float(?lng) < 139.8
+			xsd:float(?lat) > 34.5 && xsd:float(?lng) < 135.7
 		)
         } limit 100
     `
@@ -96,7 +96,7 @@ const gsimap_init = function(map, layer) {
             var name = item.name.value;
             
             layer.addIcon(lat, lng, name, "icon/icon-green.png", 32, function(name) {
-                if (name.indexOf("郵便局") >= 0) {
+                if (name.indexOf("大阪淡路町") >= 0) {
                     alert("北浜あたり！")
                 }
             })
