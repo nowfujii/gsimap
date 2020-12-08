@@ -75,10 +75,7 @@ const gsimap_init = function(map, layer) {
 	var query = `
         	prefix ic: <http://imi.go.jp/ns/core/rdf#>
         	prefix xsd: <http://www.w3.org/2001/XMLSchema#>
-/*		select * { 
-			?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/jrrk#EmergencyFacility>. 
-		} limit 10
-*/
+
         	select ?uri ?name ?lat ?lng {
         		?uri ic:名称 [ ic:表記 ?name ].
         		?uri ic:地理座標 [ ic:緯度 ?lat; ic:経度 ?lng; ].
@@ -86,7 +83,7 @@ const gsimap_init = function(map, layer) {
         			xsd:float(?lat) < 34.692130 && xsd:float(?lng) > 135.501219 &&
         			xsd:float(?lat) > 34.682073 && xsd:float(?lng) < 135.509223
         		)
-	        } limit 10
+	        } limit 100
     	`
 
 	querySPARQL(query, function(data) {
@@ -99,8 +96,8 @@ const gsimap_init = function(map, layer) {
             var name = item.name.value;
             
             layer.addIcon(lat, lng, name, "icon/icon-green.png", 32, function(name) {
-                if (name.indexOf("淡路") >= 0) {
-                    alert("大阪淡路町郵便局　あたり！")
+                if (name.indexOf("京阪") >= 0) {
+                    alert("京阪電車　あたり！")
                 }
             })
 		}
